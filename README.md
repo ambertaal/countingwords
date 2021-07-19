@@ -71,7 +71,7 @@ npm install -D tslib @types/node
 
 ```
 git add .
-git commit -m "blabla"
+git commit -m "description of commit"
 git push -u origin main
 ```
 
@@ -90,4 +90,10 @@ Install and configure Jest
 ```
 npm install --save-dev jest ts-jest @types/jest
 npx ts-jest config:init
+```
+
+```
+git add .
+git commit -m "description of commit"
+git push -u origin main
 ```
