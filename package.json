@@ -1,0 +1,18 @@
+{
+  "name": "countingwords",
+  "version": "1.0.0",
+  "description": "Amber's code for counting words case",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ambertaal/countingwords.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "Amber Taal",
+    "email": "amber.taal@gmail.com"
+  },
+  "license": "(MIT OR Apache-2.0)",
+  "private": true
+}
