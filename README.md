@@ -1,6 +1,8 @@
 How I set this up
 --------------------
 
+Initialize npm
+--------------------
 ```
 npm init
 ```
@@ -27,5 +29,34 @@ git add .
 git commit -m "description of commit"
 git remote add origin https://github.com/ambertaal/countingwords.git
 git branch -M main
+git push -u origin main
+```
+
+Install and configure typescript
+------------------------------------
+
+```
+npm install --save-dev typescript
+```
+
+Added "build": "tsc" to package.json.
+
+```
+npx tsc --init
+```
+
+Set rootDir and outDir in tsconfig.json.
+
+```
+mkdir src
+touch src/countingwords.ts
+mkdir build
+```
+
+Added build/ to .gitignore.
+
+```
+git add .
+git commit -m "description of commit"
 git push -u origin main
 ```

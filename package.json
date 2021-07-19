@@ -7,12 +7,16 @@
     "url": "https://github.com/ambertaal/countingwords.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
   },
   "author": {
     "name": "Amber Taal",
     "email": "amber.taal@gmail.com"
   },
   "license": "(MIT OR Apache-2.0)",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "typescript": "^4.3.5"
+  }
 }
