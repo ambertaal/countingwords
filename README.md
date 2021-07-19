@@ -1,21 +1,20 @@
 How I set this up
---------------------
+------
 
 Initialize npm
---------------------
+------
 ```
 npm init
 ```
 
 Added description, repository and license fields in package.json. 
-Removed entrypoint and set to private in package.json.
+Removed entrypoint and set to private using '"private": true' in package.json.
 
 ```
 touch .gitignore
 ```
 
-Created .gitignore file.
-Added node_modules/ to .gitignore.
+Added 'node_modules/' to .gitignore.
 
 ```
 touch README.md
@@ -33,13 +32,13 @@ git push -u origin main
 ```
 
 Install and configure typescript
-------------------------------------
+------
 
 ```
 npm install --save-dev typescript
 ```
 
-Added "build": "tsc" to package.json.
+Added '"build": "tsc"' to package.json.
 
 ```
 npx tsc --init
@@ -53,10 +52,34 @@ touch src/countingwords.ts
 mkdir build
 ```
 
-Added build/ to .gitignore.
+Added 'build/' to .gitignore.
 
 ```
 git add .
 git commit -m "description of commit"
 git push -u origin main
 ```
+
+Install ts-node for easier TypeScript running
+------
+
+```
+npm install -D typescript
+npm install -D ts-node
+npm install -D tslib @types/node
+```
+
+```
+git add .
+git commit -m "blabla"
+git push -u origin main
+```
+
+Usage
+-----
+
+```
+npx ts-node src/countingwords.ts
+```
+
+Execute `helloworld.ts` using `node` + `tsc`.
