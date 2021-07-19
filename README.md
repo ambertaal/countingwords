@@ -8,13 +8,13 @@ npm init
 ```
 
 Added description, repository and license fields in package.json. 
-Removed entrypoint and set to private using '"private": true' in package.json.
+Removed entrypoint and set to private using `"private": true` in package.json.
 
 ```
 touch .gitignore
 ```
 
-Added 'node_modules/' to .gitignore.
+Added `node_modules/` to .gitignore.
 
 ```
 touch README.md
@@ -38,7 +38,7 @@ Install and configure typescript
 npm install --save-dev typescript
 ```
 
-Added '"build": "tsc"' to package.json.
+Added `"build": "tsc"` to package.json.
 
 ```
 npx tsc --init
@@ -83,3 +83,11 @@ npx ts-node src/countingwords.ts
 ```
 
 Execute `helloworld.ts` using `node` + `tsc`.
+
+Install and configure Jest
+-----
+
+```
+npm install --save-dev jest ts-jest @types/jest
+npx ts-jest config:init
+```
