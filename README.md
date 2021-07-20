@@ -75,15 +75,6 @@ git commit -m "description of commit"
 git push -u origin main
 ```
 
-Usage
------
-
-```
-npx ts-node src/countingwords.ts
-```
-
-Execute `helloworld.ts` using `node` + `tsc`.
-
 Install and configure Jest
 -----
 
@@ -97,3 +88,14 @@ git add .
 git commit -m "description of commit"
 git push -u origin main
 ```
+
+Usage
+-----
+
+```
+npx ts-node src/countingwords.ts
+```
+
+Execute `countingwords.ts` using `node` + `tsc`.
+
+
