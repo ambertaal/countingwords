@@ -49,7 +49,7 @@ const errorMessage = {
     forgotNothing: 'Calculating!'
 }
 
-// Create an object whose type is WordInText.
+// Create an object whose type is WordFrequencyAnalyzerImpl.
 let wordFrequencyInThisText = new WordFrequencyAnalyzerImpl()
 
 // Logging.
