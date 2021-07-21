@@ -14,25 +14,9 @@ All special characters are seen as separators. For example: 't-shirt' is counted
 
 // Step 2. CalculateFrequencyForWord should return the frequency of the specified word
 
-interface WordFrequencyAnalyzer {
-    //    calculateHighestFrequency(text: string): number;
-    calculateFrequencyForWord(text: string, word: string): number;
-    //    calculateMostFrequentNWords(text: string, n: number): WordFrequency[];
-};
+import { WordFrequencyAnalyzerImpl } from './classes/wordfreqanalyzer';
 
-// Input of user.
-const userInput = {
-    text: 'Life, the universe and every-thing. From the third book in the five-volume Hitchhikers Guide to the Galaxy science fiction trilogy',
-    word: 'the'
-}
-
-// English error messages.
-const errorMessage = {
-    forgotText: 'Error: You forgot to fill in the text',
-    forgotWord: 'Error: You forgot to fill in the word',
-    forgotTextWord: 'Error: You forgot to fill in the text and word',
-    forgotNothing: 'Calculating!'
-}
+console.log(WordFrequencyAnalyzerImpl)
 
 // Checks the user input and logs error messages based on the available user input. Exits program if one or more of the user inputs is not available.
 function checkInput(text: string, word: string) {
@@ -50,29 +34,24 @@ function checkInput(text: string, word: string) {
     }
 }
 
-checkInput(userInput.text, userInput.word)
+// Input of user.
+const sentence1 = 'Life, the universe and everything. From the third book in the five-volume Hitchhikers Guide to the Galaxy science fiction trilogy';
+const sentence2 = '';
 
-// Convert string to array, duplicate words allowed
-const arrayToCount = userInput.text.match(/(\w+)/g)
-console.log(arrayToCount);
+const findWord1 = 'the'
+const findWord2 = 'life'
 
-// Count exact matches of string const findWord in array
-/* 
-You can add ! (exclamation mark) after a property/variable name. 
-This feature is called “Non-null assertion operator“, basically it means that when you add the exclamation 
-mark after a property/value, you are telling TypeScript that you are certain that value is not null or undefined.
-*/
-let total = 0
-
-for (let i = 0; i < arrayToCount!.length; i++) {
-    if (arrayToCount![i] === userInput.word) {
-        console.log(`${arrayToCount![i]} <- here it is`);
-        total += 1;
-        console.log(`Total so far: ${total}`);
-    }
-    else {
-        console.log(`${arrayToCount![i]} <- x`);
-    }
+// English error messages.
+const errorMessage = {
+    forgotText: 'Error: You forgot to fill in the text',
+    forgotWord: 'Error: You forgot to fill in the word',
+    forgotTextWord: 'Error: You forgot to fill in the text and word',
+    forgotNothing: 'Calculating!'
 }
 
-console.log(`Total count of the word '${userInput.word}' is: ${total}`);
+// Create an object whose type is WordInText.
+let wordFrequencyInThisText = new WordFrequencyAnalyzerImpl()
+
+// Logging.
+console.log(`Word frequency of the word '${findWord1}' in text 1: ${wordFrequencyInThisText.calculateFrequencyForWord(sentence1, findWord1)}`);
+console.log(`Word frequency of the word '${findWord2}' in text 2: ${wordFrequencyInThisText.calculateFrequencyForWord(sentence2, findWord2)}`);
