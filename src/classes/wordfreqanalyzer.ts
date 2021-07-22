@@ -8,17 +8,24 @@ export class WordFrequencyAnalyzerImpl implements WordFrequencyAnalyzer {
         if (array === null) {
             return 0;
         }
-        console.log(array);
         for (let i = 0; i < array.length; i++) {
             if (array[i].toLowerCase() === word.toLowerCase()) {
-                console.log(`${array[i]} <- here it is`);
                 total += 1;
-                console.log(`Total so far: ${total}`);
-            }
-            else {
-                console.log(`${array[i]} <- x`);
             }
         }
         return total;
+    }
+    calculateHighestFrequency(text: string): number {
+        let totalFrequency = 0;
+        const arrayHighestFreq = text.match(/([A-Za-z]+)/g);
+        if (arrayHighestFreq === null) {
+            return 0;
+        }
+        let newArray: Array<number> = []
+        for (let i = 0; i < arrayHighestFreq.length; i++) {
+            newArray.push(this.calculateFrequencyForWord(text, arrayHighestFreq[i]));
+        }
+        newArray.sort(function (a, b) { return b - a });
+        return newArray[0];
     }
 }
