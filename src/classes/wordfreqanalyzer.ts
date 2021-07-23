@@ -16,7 +16,6 @@ export class WordFrequencyAnalyzerImpl implements WordFrequencyAnalyzer {
         return total;
     }
     calculateHighestFrequency(text: string): number {
-        let totalFrequency = 0;
         const arrayHighestFreq = text.match(/([A-Za-z]+)/g);
         if (arrayHighestFreq === null) {
             return 0;
