@@ -30,3 +30,9 @@ test('A word that is part of a longer word', () => {
     const highestFreq = wordFrequencyInThisText.calculateHighestFrequency('My name is bond, James Bond. He is bonding said James Bond.')
     expect(highestFreq).toBe(3);
 });
+
+test('When there is only 1 word', () => {
+    let wordFrequencyInThisText = new WordFrequencyAnalyzerImpl()
+    const highestFreq = wordFrequencyInThisText.calculateHighestFrequency('a')
+    expect(highestFreq).toBe(1);
+});

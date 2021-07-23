@@ -16,15 +16,17 @@ export class WordFrequencyAnalyzerImpl implements WordFrequencyAnalyzer {
         return total;
     }
     calculateHighestFrequency(text: string): number {
+        let highestFreq = 0;
         const arrayHighestFreq = text.match(/([A-Za-z]+)/g);
         if (arrayHighestFreq === null) {
             return 0;
         }
-        let newArray: Array<number> = []
         for (let i = 0; i < arrayHighestFreq.length; i++) {
-            newArray.push(this.calculateFrequencyForWord(text, arrayHighestFreq[i]));
+            let currentFreq = this.calculateFrequencyForWord(text, arrayHighestFreq[i]);
+            if (currentFreq > highestFreq) {
+                highestFreq = currentFreq;
+            }
         }
-        newArray.sort(function (a, b) { return b - a });
-        return newArray[0];
+        return highestFreq;
     }
 }
