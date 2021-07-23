@@ -31,9 +31,3 @@ test('A word that is part of a longer word', () => {
     const freq = wordFrequencyInThisText.calculateFrequencyForWord('A cat and a dog', 'a')
     expect(freq).toBe(2);
 });
-
-test('A word that is part of a longer word', () => {
-    let wordFrequencyInThisText = new WordFrequencyAnalyzerImpl()
-    const freq = wordFrequencyInThisText.calculateFrequencyForWord('A cat and a dog', 'a')
-    expect(freq).toBe(2);
-});

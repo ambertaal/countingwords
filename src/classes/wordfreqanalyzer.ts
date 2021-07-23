@@ -1,4 +1,20 @@
 import { WordFrequencyAnalyzer } from '../interfaces/wordfreqanalyzer';
+import { WordFrequency } from '../interfaces/wordfreqanalyzer';
+
+export class WordFrequencyImpl implements WordFrequency {
+    word: string;
+    n: number;
+    constructor(word: string, n: number) {
+        this.word = word;
+        this.n = n;
+    }
+    getWord(): string {
+        return this.word;
+    }
+    getFrequency(): number {
+        return this.n;
+    }
+}
 
 // Created class with a function including a for loop to analyze multiple texts.
 export class WordFrequencyAnalyzerImpl implements WordFrequencyAnalyzer {
@@ -29,4 +45,42 @@ export class WordFrequencyAnalyzerImpl implements WordFrequencyAnalyzer {
         }
         return highestFreq;
     }
+    calculateMostFrequentNWords(text: string, n: number): WordFrequency[] {
+        const arrayMostFreq = text.match(/([A-Za-z]+)/g);
+        if (arrayMostFreq === null) {
+            return [];
+        }
+        console.log(arrayMostFreq);
+
+        let newArray: Array<WordFrequencyImpl> = []
+        for (let i = 0; i < arrayMostFreq.length; i++) {
+            let word = arrayMostFreq[i];
+            let freq = this.calculateFrequencyForWord(text, arrayMostFreq[i]);
+            newArray.push(new WordFrequencyImpl(word, freq));
+        }
+
+        // Sort by alfabet ascendant.
+        newArray.sort(function (a, b) {
+            let wordA = a.word.toLowerCase();
+            let wordB = b.word.toLowerCase();
+            if (wordA < wordB) {
+                return -1;
+            }
+            // words must be equal.
+            return 0;
+        });
+
+        // Sort by freq descending.
+        newArray.sort(function (a, b) {
+            return b.n - a.n;
+        });
+        console.log(newArray);
+
+        // Get most frequent 'n' words.
+        let uniqueArray = newArray.filter((newArray, idx) => idx < n)
+        console.log(uniqueArray);
+        return [];
+    }
+
 }
+
