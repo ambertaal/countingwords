@@ -1,6 +1,7 @@
 import { WordFrequencyAnalyzer } from '../interfaces/wordfreqanalyzer';
 import { WordFrequency } from '../interfaces/wordfreqanalyzer';
 
+// Created class with functions
 export class WordFrequencyImpl implements WordFrequency {
     word: string;
     n: number;
@@ -46,20 +47,27 @@ export class WordFrequencyAnalyzerImpl implements WordFrequencyAnalyzer {
         return highestFreq;
     }
     calculateMostFrequentNWords(text: string, n: number): WordFrequency[] {
+        // Convert string to array.
         const arrayMostFreq = text.match(/([A-Za-z]+)/g);
         if (arrayMostFreq === null) {
             return [];
         }
-        console.log(arrayMostFreq);
 
+        // String to lowercase.
+        const lowercaseArrayMostFreq = arrayMostFreq.map(array => array.toLowerCase());
+        console.log(lowercaseArrayMostFreq);
+
+        // Count each word in the array and store frequency in array.
         let newArray: Array<WordFrequencyImpl> = []
-        for (let i = 0; i < arrayMostFreq.length; i++) {
-            let word = arrayMostFreq[i];
-            let freq = this.calculateFrequencyForWord(text, arrayMostFreq[i]);
+        for (let i = 0; i < lowercaseArrayMostFreq.length; i++) {
+            let word = lowercaseArrayMostFreq[i];
+            let freq = this.calculateFrequencyForWord(text, lowercaseArrayMostFreq[i]);
             newArray.push(new WordFrequencyImpl(word, freq));
         }
 
-        // Sort by alfabet ascendant.
+        console.log(newArray);
+
+        // Sort by ascendant alfabetically order.
         newArray.sort(function (a, b) {
             let wordA = a.word.toLowerCase();
             let wordB = b.word.toLowerCase();
@@ -70,17 +78,22 @@ export class WordFrequencyAnalyzerImpl implements WordFrequencyAnalyzer {
             return 0;
         });
 
-        // Sort by freq descending.
+        // Sort by descending frequency [100-0] order.
         newArray.sort(function (a, b) {
             return b.n - a.n;
         });
         console.log(newArray);
 
+        // Remove all duplicates from an array of objects.
+        const ids = newArray.map(o => o.word);
+        const UniqueArray = newArray.filter(({ word }, index) => !ids.includes(word, index + 1));
+
+        console.log(UniqueArray);
+
         // Get most frequent 'n' words.
-        let uniqueArray = newArray.filter((newArray, idx) => idx < n)
-        console.log(uniqueArray);
+        let filteredUniqueArray = UniqueArray.filter((UniqueArray, idx) => idx < n)
+        console.log(filteredUniqueArray);
+
         return [];
     }
-
 }
-

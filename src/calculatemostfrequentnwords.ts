@@ -7,7 +7,7 @@ console.log(WordFrequencyImpl);
 
 // Input of user.
 const sentence1 = 'The sun shines over the lake';
-const sentence2 = 'The way to get started is to quit talking and begin doing. -Walt Disney';
+const sentence2 = 'The way 123 to get start-ed is to 123 quit talk_ing and begin 123 doi!ng. -Walt Disney';
 const sentence3 = 'A a a b b c';
 
 const n1 = 3;
