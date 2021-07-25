@@ -94,6 +94,6 @@ export class WordFrequencyAnalyzerImpl implements WordFrequencyAnalyzer {
         let filteredUniqueArray = UniqueArray.filter((UniqueArray, idx) => idx < n)
         console.log(filteredUniqueArray);
 
-        return [];
+        return filteredUniqueArray;
     }
 }
