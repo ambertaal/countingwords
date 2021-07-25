@@ -25,7 +25,7 @@ test('When counting frequencies, it is a case insensitive frequency', () => {
     expect(highestFreq).toBe(3);
 });
 
-test('A word that is part of a longer word', () => {
+test('A word that is part of a longer word, is counted as a seperate word', () => {
     let wordFrequencyInThisText = new WordFrequencyAnalyzerImpl()
     const highestFreq = wordFrequencyInThisText.calculateHighestFrequency('My name is bond, James Bond. He is bonding said James Bond.')
     expect(highestFreq).toBe(3);
