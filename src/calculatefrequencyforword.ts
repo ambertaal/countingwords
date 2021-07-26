@@ -36,7 +36,7 @@ function checkInput(text: string, word: string) {
 
 // Input of user.
 const sentence1 = 'Life, the universe and everything. From the third book in the five-volume Hitchhikers Guide to the Galaxy science fiction trilogy';
-const sentence2 = '';
+const sentence2 = 'Living life to the fullest life';
 
 const findWord1 = 'the'
 const findWord2 = 'life'

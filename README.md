@@ -1,101 +1,28 @@
-How I set this up
-------
-
-Initialize npm
-------
-```
-npm init
-```
-
-Added description, repository and license fields in package.json. 
-Removed entrypoint and set to private using `"private": true` in package.json.
+## Usage
 
 ```
-touch .gitignore
+npx ts-node src/calculatehighestfrequency.ts
 ```
 
-Added `node_modules/` to .gitignore.
+Execute `calculatehighestfrequency.ts ` using `node` + `tsc`.
+Returns the highest frequency in the text.
 
 ```
-touch README.md
+npx ts-node src/calculatefrequencyforword.ts
 ```
 
-Created README.md file.
+Execute `calculatefrequencyforword.ts` using `node` + `tsc`.
+Returns the frequency of the specified word.
 
 ```
-git init
-git add .
-git commit -m "description of commit"
-git remote add origin https://github.com/ambertaal/countingwords.git
-git branch -M main
-git push -u origin main
+npx ts-node src/calculatemostfrequentnwords.ts
 ```
 
-Install and configure typescript
-------
+Execute `calculatemostfrequentnwords.ts` using `node` + `tsc`.
+Returns a list of the most frequent „n‟ words in the input text.
 
 ```
-npm install --save-dev typescript
+npx jest
 ```
 
-Added `"build": "tsc"` to package.json.
-
-```
-npx tsc --init
-```
-
-Set rootDir and outDir in tsconfig.json.
-
-```
-mkdir src
-touch src/countingwords.ts
-mkdir build
-```
-
-Added 'build/' to .gitignore.
-
-```
-git add .
-git commit -m "description of commit"
-git push -u origin main
-```
-
-Install ts-node for easier TypeScript running
-------
-
-```
-npm install -D typescript
-npm install -D ts-node
-npm install -D tslib @types/node
-```
-
-```
-git add .
-git commit -m "description of commit"
-git push -u origin main
-```
-
-Install and configure Jest
------
-
-```
-npm install --save-dev jest ts-jest @types/jest
-npx ts-jest config:init
-```
-
-```
-git add .
-git commit -m "description of commit"
-git push -u origin main
-```
-
-Usage
------
-
-```
-npx ts-node src/countingwords.ts
-```
-
-Execute `countingwords.ts` using `node` + `tsc`.
-
-
+Run `npx jest` and jest will execute the tests.
