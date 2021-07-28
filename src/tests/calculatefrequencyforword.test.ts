@@ -1,10 +1,10 @@
 import { WordFrequencyAnalyzerImpl } from '../classes/wordfreqanalyzer';
 
 test('Word frequency analyzer example', () => {
-    const sentence = 'Life, the universe and everything. From the third book in the five-volume Hitchhikers Guide to the Galaxy science fiction trilogy';
+    const text = 'Life, the universe and everything. From the third book in the five-volume Hitchhikers Guide to the Galaxy science fiction trilogy';
     let wordFrequencyInThisText = new WordFrequencyAnalyzerImpl()
 
-    const freq = wordFrequencyInThisText.calculateFrequencyForWord(sentence, 'the')
+    const freq = wordFrequencyInThisText.calculateFrequencyForWord(text, 'the')
     expect(freq).toBe(4);
 });
 

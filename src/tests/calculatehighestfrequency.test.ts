@@ -1,9 +1,9 @@
 import { WordFrequencyAnalyzerImpl } from '../classes/wordfreqanalyzer';
 
 test('Highest frequency example', () => {
-    const sentence1 = 'My name is Bond, James Bond';
+    const text1 = 'My name is Bond, James Bond';
     let wordFrequencyInThisText = new WordFrequencyAnalyzerImpl()
-    const highestFreq = wordFrequencyInThisText.calculateHighestFrequency(sentence1)
+    const highestFreq = wordFrequencyInThisText.calculateHighestFrequency(text1)
     expect(highestFreq).toBe(2);
 });
 
