@@ -5,9 +5,9 @@ import { WordFrequency } from '../interfaces/wordfreqanalyzer';
 export class WordFrequencyImpl implements WordFrequency {
     word: string;
     n: number;
-    constructor(word: string, n: number) {
-        this.word = word;
-        this.n = n;
+    constructor(woord: string, nummer: number) {
+        this.word = woord;
+        this.n = nummer;
     }
     getWord(): string {
         return this.word;
@@ -20,27 +20,26 @@ export class WordFrequencyImpl implements WordFrequency {
 // Created class with a function including a for loop to analyze multiple texts.
 export class WordFrequencyAnalyzerImpl implements WordFrequencyAnalyzer {
     calculateFrequencyForWord(text: string, word: string): number {
-        let total = 0;
-        const array = text.match(/([A-Za-z]+)/g)
-        if (array === null) {
+        const wordsOfText = text.match(/[A-Za-z]+/g)
+        if (wordsOfText === null) {
             return 0;
         }
-        for (let i = 0; i < array.length; i++) {
-            if (array[i].toLowerCase() === word.toLowerCase()) {
+        let total = 0;
+        for (let i = 0; i < wordsOfText.length; i++) {
+            if (wordsOfText[i].toLowerCase() === word.toLowerCase()) {
                 total += 1;
             }
         }
         return total;
     }
-    
     calculateHighestFrequency(text: string): number {
-        let highest = 0;
-        const array = text.match(/([A-Za-z]+)/g);
-        if (array === null) {
+        const wordsOfText = text.match(/[A-Za-z]+/g);
+        if (wordsOfText === null) {
             return 0;
         }
-        for (let i = 0; i < array.length; i++) {
-            let currentFreq = this.calculateFrequencyForWord(text, array[i]);
+        let highest = 0;
+        for (let i = 0; i < wordsOfText.length; i++) {
+            let currentFreq = this.calculateFrequencyForWord(text, wordsOfText[i]);
             if (currentFreq > highest) {
                 highest = currentFreq;
             }
@@ -48,21 +47,17 @@ export class WordFrequencyAnalyzerImpl implements WordFrequencyAnalyzer {
         return highest;
     }
     calculateMostFrequentNWords(text: string, n: number): WordFrequency[] {
-        const array = text.match(/([A-Za-z]+)/g);
-        if (array === null) {
+        // Convert the string to lowercase array with words of text.
+        const wordsOfText = text.match(/[A-Za-z]+/g);
+        if (wordsOfText === null) {
             return [];
         }
-
-        // String to lowercase.
-        const lowercaseArray = array.map(word => word.toLowerCase());
+        const lowercaseArray = wordsOfText.map(word => word.toLowerCase());
 
         // Count each word in the array and store frequency in array.
-        let arrayFreq: Array<WordFrequencyImpl> = []
-        for (let i = 0; i < lowercaseArray.length; i++) {
-            let word = lowercaseArray[i];
-            let freq = this.calculateFrequencyForWord(text, lowercaseArray[i]);
-            arrayFreq.push(new WordFrequencyImpl(word, freq));
-        }
+        const arrayFreq: Array<WordFrequencyImpl> = lowercaseArray.map(
+            word => new WordFrequencyImpl(word, this.calculateFrequencyForWord(text, word))
+        );
 
         // Sort by ascendant alfabetically order.
         arrayFreq.sort(function (a, b) {
@@ -70,6 +65,9 @@ export class WordFrequencyAnalyzerImpl implements WordFrequencyAnalyzer {
             let wordB = b.word.toLowerCase();
             if (wordA < wordB) {
                 return -1;
+            }
+            if (wordA > wordB) {
+                return 1;
             }
             // words must be equal.
             return 0;
@@ -80,8 +78,8 @@ export class WordFrequencyAnalyzerImpl implements WordFrequencyAnalyzer {
             return b.n - a.n;
         });
 
-        // Remove all duplicates from an array of objects.
-        let UniqueArrayFreq: Array<WordFrequencyImpl> = []
+        // Remove all duplicates from the sorted array of objects.
+        const UniqueArrayFreq: Array<WordFrequencyImpl> = []
 
         for (let i = 0; i < arrayFreq.length; i++) {
             if (i==0 || arrayFreq[i].word != arrayFreq[i-1].word) {
@@ -90,7 +88,7 @@ export class WordFrequencyAnalyzerImpl implements WordFrequencyAnalyzer {
         }
 
         // Get most frequent 'n' words.
-        let filteredUniqueArrayFreq = UniqueArrayFreq.slice(0, n);
+        const filteredUniqueArrayFreq = UniqueArrayFreq.slice(0, n);
 
         return filteredUniqueArrayFreq;
     }

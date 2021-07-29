@@ -20,6 +20,12 @@ test('A word containing only numbers and special characters', () => {
     expect(freq).toBe(0);
 });
 
+test('A text containing only special characters and numbers', () => {
+    let wordFrequencyInThisText = new WordFrequencyAnalyzerImpl()
+    const freq = wordFrequencyInThisText.calculateFrequencyForWord('      123, !!! ---', 'the')
+    expect(freq).toBe(0);
+});
+
 test('When counting frequencies, it is a case insensitive frequency', () => {
     let wordFrequencyInThisText = new WordFrequencyAnalyzerImpl()
     const freq = wordFrequencyInThisText.calculateFrequencyForWord('And aNd and AND lake', 'and')

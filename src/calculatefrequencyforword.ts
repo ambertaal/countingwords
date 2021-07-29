@@ -12,8 +12,8 @@ const findWord1 = 'the'
 const findWord2 = 'life'
 
 // Create an object whose type is WordFrequencyAnalyzerImpl.
-let wordFrequencyInThisText = new WordFrequencyAnalyzerImpl()
+let wordFrequencyAnalyzer = new WordFrequencyAnalyzerImpl()
 
 // Logging.
-console.log(`Word frequency of the word '${findWord1}' in text 1: ${wordFrequencyInThisText.calculateFrequencyForWord(text1, findWord1)}`);
-console.log(`Word frequency of the word '${findWord2}' in text 2: ${wordFrequencyInThisText.calculateFrequencyForWord(text2, findWord2)}`);
+console.log(`Word frequency of the word '${findWord1}' in text 1: ${wordFrequencyAnalyzer.calculateFrequencyForWord(text1, findWord1)}`);
+console.log(`Word frequency of the word '${findWord2}' in text 2: ${wordFrequencyAnalyzer.calculateFrequencyForWord(text2, findWord2)}`);

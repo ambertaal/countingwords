@@ -17,10 +17,10 @@ const n3 = 2;
 const n4 = 3;
 
 // Create an object whose type is WordFrequencyAnalyzerImpl.
-let wordFrequencyInThisText = new WordFrequencyAnalyzerImpl();
+let wordFrequencyAnalyzer = new WordFrequencyAnalyzerImpl();
 
 // Logging.
-console.log(wordFrequencyInThisText.calculateMostFrequentNWords(text1, n1));
-console.log(wordFrequencyInThisText.calculateMostFrequentNWords(text2, n2));
-console.log(wordFrequencyInThisText.calculateMostFrequentNWords(text3, n3));
-console.log(wordFrequencyInThisText.calculateMostFrequentNWords(text4, n4));
+console.log(wordFrequencyAnalyzer.calculateMostFrequentNWords(text1, n1));
+console.log(wordFrequencyAnalyzer.calculateMostFrequentNWords(text2, n2));
+console.log(wordFrequencyAnalyzer.calculateMostFrequentNWords(text3, n3));
+console.log(wordFrequencyAnalyzer.calculateMostFrequentNWords(text4, n4));
